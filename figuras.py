@@ -19,9 +19,9 @@ y=Vy(100,20)
 pygame.init()
 windows=pygame.display.set_mode((800,600))
 pygame.draw.rect(windows,(23,251,205),(0,0,50,30))
-pygame.draw.line(windows,(23,251,205),(100,300),(700,300),2)
-pygame.draw.line(windows,(23,251,205),(400,100),(400,500),2)
-pygame.draw.line(windows,(255,27,23),(orix,oriy),(orix + Vx(100,20),oriy - Vy(100,20)),3)
+pygame.draw.line(windows,(255,255,255),(100,300),(700,300),2)
+pygame.draw.line(windows,(255,255,255),(400,100),(400,500),2)
+pygame.draw.line(windows,(157,19,247),(orix,oriy),(orix + Vx(100,20),oriy - Vy(100,20)),3)
 
 orix=orix + Vx(100,20)
 oriy=oriy - Vy(100,20)
@@ -31,7 +31,23 @@ pygame.draw.line(windows,(3,236,26),(orix,oriy),(orix + Vx(120,36),oriy - Vy(120
 orix=orix + Vx(120,36)
 oriy=oriy - Vy(120,36)
 
-pygame.draw.line(windows,(3,236,26),(orix,oriy),(orix + Vx(-80,30),oriy - Vy(80,30)),3)
+pygame.draw.line(windows,(231,114,28),(orix,oriy),(orix + Vx(-80,30),oriy - Vy(80,30)),3)
+
+orix=orix + Vx(-80,30)
+oriy=oriy - Vy(80,30)
+
+pygame.draw.line(windows,(236,240,13),(orix,oriy),(orix + Vx(180,180),oriy - 0),3)
+
+orix=orix + Vx(180,180)
+oriy=oriy - 0
+
+pygame.draw.line(windows,(13,161,240),(orix,oriy),(orix + Vx(-230,65),oriy - Vy(-230,65)),3)
+
+orix=400
+oriy=300
+
+pygame.draw.line(windows,(249,46,232),(orix,oriy),(orix + Vx(170,203),oriy - Vy(170,203)),3)
+
 pygame.display.update()
 
-time.sleep(9.8)
+time.sleep(5.8)
