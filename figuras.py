@@ -17,9 +17,12 @@ x=Vx(100,20)
 y=Vy(100,20)
 
 pygame.init()
+
 windows=pygame.display.set_mode((800,600))
-pygame.draw.rect(windows,(23,251,205),(0,0,50,30))
-pygame.draw.line(windows,(255,255,255),(100,300),(700,300),2)
+
+pygame.draw.rect(windows,(107,204,241),(0,0,800,600))
+
+pygame.draw.line(windows,(255,255,255),(200,300),(600,300),2)
 pygame.draw.line(windows,(255,255,255),(400,100),(400,500),2)
 pygame.draw.line(windows,(157,19,247),(orix,oriy),(orix + Vx(100,20),oriy - Vy(100,20)),3)
 
