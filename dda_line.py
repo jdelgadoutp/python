@@ -1,6 +1,7 @@
 from __future__ import division
 import pygame, sys, math
 from pygame.locals import *
+
 def main():
 	displaySurface = pygame.display.set_mode((500, 500))
 	displaySurface.fill((255, 255, 255))
@@ -79,7 +80,7 @@ def draw_line_bres(surface, x1, y1, x2, y2, color=(0, 0, 255)):
         y = y1
         xEnd = x2
         stepX = 1
-    	surface.set_at((x,y), color)
+        surface.set_at((x,y), color)
         while x != xEnd:
             x += stepX
             if p < 0:
@@ -87,7 +88,7 @@ def draw_line_bres(surface, x1, y1, x2, y2, color=(0, 0, 255)):
             else:
                 p += incNE
                 y += stepY
-    	    surface.set_at((x,y), color)
+                surface.set_at((x,y), color)
     else:
         p = 2 * dx - dy
         incE = 2 * dx

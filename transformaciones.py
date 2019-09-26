@@ -82,7 +82,7 @@ pygame.draw.rect(windows, color, (200,150,100,50),5)
 
 pygame.draw.polygon(windows, color, [(20,20),(250,50),(10,70)],5)
 
-Rectangulo(windows,color,(200,300),(400,500),1)
+Rectangulo(windows,color,(200,300),(400,500),0)
     
 punto(windows,color,P1)
 P2=traslacion(P1,[-50,40])
