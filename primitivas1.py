@@ -75,7 +75,8 @@ def figura1(windows,pos_ini,x0,y0):
     y = pos_ini[1]
     for n in range(0,4):
         if n == 0 or n == 3:
-            Rectangulo(windows,color1,(x , y),(x + x0,y + y0),1)
+            Rectangulo(windows,color1,(x + 2, y + 2),(x + x0 - 2,y + y0 - 2),1)
+            Rectangulo(windows,color,(x , y),(x + x0,y + y0),0)
         else:
             Rectangulo(windows,color,(x , y),(x + x0,y + y0),0)    
         x = x + x0
@@ -89,7 +90,8 @@ def figura2(windows,pos_ini,x0,y0):
     for n in range(0,9):
         
         if n == 1 or n == 3 or n ==5 or n == 7:
-            Rectangulo(windows,color1,(x , y),(x + x0,y + y0),1)
+            Rectangulo(windows,color1,(x + 2, y + 2),(x + x0 - 2,y + y0 - 2),1)
+            Rectangulo(windows,color,(x , y),(x + x0,y + y0),0)
         else:
             Rectangulo(windows,color,(x , y),(x + x0,y + y0),0) 
         
@@ -173,7 +175,7 @@ def figura9(windows, color, vertex_count, radius, position):
 
 #--------------se hace el llamado de la funcion figura mas el numero del ejercicio ejemplo figura1,figura2
 
-#figura1(windows,(100,100),200,100)
+figura1(windows,(100,100),200,100)
 #figura2(windows,(100,100),100,100)
 #figura3(windows,(100,100),100,100)
 #figura4(windows,(100,100),120,80)
@@ -181,7 +183,7 @@ def figura9(windows, color, vertex_count, radius, position):
 #figura6(300,300,(100,500))
 #figura7(300,300,(200,500))
 #figura8(windows,(200,100),200,300)
-figura9(windows,color,5,200,(200,300))
+#figura9(windows,color,5,200,(200,300))
 #figura10(windows,400,300,200)
 
 
