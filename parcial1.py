@@ -129,21 +129,7 @@ def circleBres(windows,color,xc,yc,r):
             d = d + 4 * (x - y) + 10
         else:
             d = d + 4 * x + 6
-        drawCircle(windows,color,xc,yc,x,y)        
-
-#TrianguloR(300,200,(100,500))
-
-#Equi(300,200,(450,500))
-
-#Rectangulo(windows,color,(100,100),(400,200),0)
-
-#P1=np.array([400,300])
-
-#punto(windows,color,P1)
-
-#P2=traslacion(P1,[-50,40])
-
-#punto(windows,color,P2)
+        drawCircle(windows,color,xc,yc,x,y)
 
 def Pantalla():
     draw_line_dda(windows,0,350,800,350,color)
@@ -274,17 +260,42 @@ def Cuadro1(pos_ini,x1,y1):
 def LineasI(pos_ini,x1,y1):
     x = pos_ini[0]
     y = pos_ini[1]
-    draw_line_dda(windows,x + int(x1/12),y,x,y + int(y1/12),color)
-    draw_line_dda(windows,x + int((x1/12)*2),y,x,y + int((y1/12)*2),color)
-    draw_line_dda(windows,x + int((x1/12)*3),y,x,y + int((y1/12)*3),color)
-    draw_line_dda(windows,x + int((x1/12)*4),y,x,y + int((y1/12)*4),color)
-    draw_line_dda(windows,x + int((x1/12)*5),y,x,y + int((y1/12)*5),color)
-    draw_line_dda(windows,x + int((x1/12)*6),y,x,y + int((y1/12)*6),color)
-    draw_line_dda(windows,x + int(x1/2),y + int(y1/12),x + int(x1/12),y + int(y1/2),color)
-    draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*2),x + int((x1/12)*2),y + int(y1/2),color)
-    draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*3),x + int((x1/12)*3),y + int(y1/2),color)
-    draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*4),x + int((x1/12)*4),y + int(y1/2),color)
-    draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*5),x + int((x1/12)*5),y + int(y1/2),color)    
+    for m in range(1,7):
+        draw_line_dda(windows,x + int((x1/12)*m),y,x,y + int((y1/12)*m),color)
+        if m == 6:
+            draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*m-1),x + int((x1/12)*m-1),y + int(y1/2),color)
+        else:    
+            draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*m),x + int((x1/12)*m),y + int(y1/2),color)
+    
+def LineasD(pos_ini,x1,y1):
+    x = pos_ini[0]
+    y = pos_ini[1]
+    
+    draw_line_dda(windows,x,y + int((y1/12)*11+1),x + int((x1/12)*1),y + y1,color)
+    draw_line_dda(windows,x,y + int((y1/12)*10+1),x + int((x1/12)*2),y + y1,color)
+    draw_line_dda(windows,x,y + int((y1/12)*9),x + int((x1/12)*3),y + y1,color)
+    draw_line_dda(windows,x,y + int((y1/12)*8+1),x + int((x1/12)*4),y + y1,color)
+    draw_line_dda(windows,x,y + int((y1/12)*7+1),x + int((x1/12)*5),y + y1,color)
+    draw_line_dda(windows,x,y + int((y1/12)*6),x + int((x1/12)*6),y + y1,color)
+
+    draw_line_dda(windows,x + int((x1/12)*1),y + int(y1/2),x + int(x1/2),y + int((y1/12)*11+1),color)
+    draw_line_dda(windows,x + int((x1/12)*2),y + int(y1/2),x + int(x1/2),y + int((y1/12)*10+1),color)
+    draw_line_dda(windows,x + int((x1/12)*3),y + int(y1/2),x + int(x1/2),y + int((y1/12)*9),color)
+    draw_line_dda(windows,x + int((x1/12)*4),y + int(y1/2),x + int(x1/2),y + int((y1/12)*8+1),color)
+    draw_line_dda(windows,x + int((x1/12)*5),y + int(y1/2),x + int(x1/2),y + int((y1/12)*7+1),color)
+
+    draw_line_dda(windows,x + int((x1/12)*11+1),y,x + x1,y + int((y1/12)*1),color)
+    draw_line_dda(windows,x + int((x1/12)*10+1),y,x + x1,y + int((y1/12)*2),color)
+    draw_line_dda(windows,x + int((x1/12)*9),y,x + x1,y + int((y1/12)*3),color)
+    draw_line_dda(windows,x + int((x1/12)*8+1),y,x + x1,y + int((y1/12)*4),color)
+    draw_line_dda(windows,x + int((x1/12)*7+1),y,x + x1,y + int((y1/12)*5),color)
+    draw_line_dda(windows,x + int((x1/12)*6),y,x + x1,y + int((y1/12)*6),color)
+
+    draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*5),x + int((x1/12)*7+1),y + int(y1/2),color)
+    draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*4),x + int((x1/12)*8+1),y + int(y1/2),color)
+    draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*3),x + int((x1/12)*9),y + int(y1/2),color)
+    draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*2),x + int((x1/12)*10+1),y + int(y1/2),color)
+    draw_line_dda(windows,x + int(x1/2),y + int((y1/12)*1),x + int((x1/12)*11+1),y + int(y1/2),color)
 
 def Cuadro2(pos_ini,x1,y1):
     x = pos_ini[0]
@@ -294,6 +305,16 @@ def Cuadro2(pos_ini,x1,y1):
     draw_line_dda(windows,x,y + int(y1/2),x + x1,y + int(y1/2),color)
     LineasI(pos_ini,x1,y1)
     LineasI((x+int(x1/2),y+int(y1/2)),x1,y1)  
+    LineasD(pos_ini,x1,y1)
+    #-----------sombra
+    draw_line_dda(windows,x + int((x1/12)*6+1),y+1,x+1,y + int((y1/12)*6+1),color)
+    draw_line_dda(windows,x + int((x1/12)*6-1),y-1,x-1,y + int((y1/12)*6-1),color)
+    draw_line_dda(windows,x + int((x1/12)*6+1),y-1,x + x1+1,y + int(y1/2-1),color)
+    draw_line_dda(windows,x + int((x1/12)*6-1),y+1,x + x1-1,y + int(y1/2+1),color)
+    draw_line_dda(windows,x + 1,y + int(y1/2)-1,x + int(x1/2)+1,y + y1-1,color)
+    draw_line_dda(windows,x - 1,y + int(y1/2)+1,x + int(x1/2)-1,y + y1+1,color)
+    draw_line_dda(windows,x + x1+1,y + int(y1/2)+1,x + int(x1/2)+1,y + y1+1,color)  
+    draw_line_dda(windows,x + x1-1,y + int(y1/2)-1,x + int(x1/2)-1,y + y1-1,color)   
 
 Pantalla()
 Robot()
