@@ -114,7 +114,7 @@ def validaFigura(pos_ini):
     x = pos_ini[0]
     y = pos_ini[1]
     
-    if x > 0 and x <= 35 and y >= 0 and y <= 35:
+    if x > 0 and x <= 35 and y > 0 and y <= 35:
         figura = 1
     if x > 0 and x <= 35 and y > 35 and y <= 70:
         figura = 2  
@@ -222,4 +222,15 @@ def menu(windows,color,pos_ini):
         if n == 14:
             Rectangulo(windows,Morado,(x+2,y+2),(x+33,y+33),1)
 
-    pygame.display.flip()        
+    pygame.display.flip()
+
+def Linea(windows,pos_ini,pos_fin,color):
+    x0 = pos_ini[0]
+    y0 = pos_ini[1]
+    x1 = pos_fin[0]
+    y1 = pos_fin[1]
+
+    if y1 < y0 and x1 < x0:
+        draw_line_dda(windows,x1,y1,x0,y0,color)
+    else:
+        draw_line_dda(windows,x0,y0,x1,y1,color)
