@@ -41,10 +41,7 @@ def main():
            if p[0] > 0 and p[0] <= 35 and p[1] > 245 and p[1] <=560:
                figura[1] = fn.validaColor(event.pos)
                print (str(figura) + " con color : " + str(Color))
-           if p[0] > 35 and p[1] > 0 and figura[0] == 2:
-               figura[2] = p
-
-
+          
         if event.type == pygame.MOUSEMOTION:
             # imprime en la consola los botones presionados, y su posicion y movimiento relativo en ese momento
             #print u'botones presionados {}, posicion {} y movimiento relativo {}'.format(event.buttons, event.pos, event.rel)
@@ -77,5 +74,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-    
