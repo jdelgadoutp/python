@@ -15,10 +15,10 @@ Cafe = [108,73,24]
 Verde = [0,255,0]
 Azul = [0,0,255]
 Rojo = [250,0,0]
-Blanco = [255,255,255]
+Blanco = [250,250,250]
 Rosa = [250,3,202]
 Color = Negro
-figura = [0,Negro,[],[]]
+figura = [0,Negro]
 
 def main():
     pygame.init()
@@ -50,7 +50,12 @@ def main():
             #print u'botones presionados {}, posicion {} y movimiento relativo {}'.format(event.buttons, event.pos, event.rel)
             if event.pos[0] > 35 and event.buttons[0] == 1 and figura[0] == 1:
                 fn.punto(windows,figura[1],event.pos)
-                pygame.display.flip()               
+                pygame.display.flip()
+
+            if event.pos[0] > 35 and event.buttons[0] == 1 and figura[0] == 7:
+                fn.Rectangulo(windows,Blanco,event.pos,(event.pos[0]+2,event.pos[1]+2),1)
+                pygame.display.flip()    
+
 
         if event.type == pygame.MOUSEBUTTONUP:
             if p[0] > 35 and p[1] > 0 and figura[0] == 2:
