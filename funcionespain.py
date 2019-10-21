@@ -1,6 +1,8 @@
 import pygame, sys, math
 import numpy as np
+import color as cl
 import time
+from tkcolorpicker import askcolor
 
 Negro =[0, 0, 0]
 Amarillo = [250,235,3]
@@ -113,48 +115,63 @@ def Rectangulo(windows,color,pos_ini,pos_fin,sombra):
 def validaFigura(pos_ini):
     x = pos_ini[0]
     y = pos_ini[1]
+    figura = [0,"Elije una función"]
     
     if x > 0 and x <= 35 and y > 0 and y <= 35:
-        figura = 1
+        figura[0] = 1
+        figura[1] = "Dibujo a mano alzada"
+        
     if x > 0 and x <= 35 and y > 35 and y <= 70:
-        figura = 2  
+        figura[0] = 2  
     if x > 0 and x <= 35 and y > 70 and y <= 105:
-        figura = 3 
+        figura[0] = 3 
     if x > 0 and x <= 35 and y > 105 and y <= 140:
-        figura = 4
+        figura[0] = 4
     if x > 0 and x <= 35 and y > 140 and y <= 175:
-        figura = 5
+        figura[0] = 5
     if x > 0 and x <= 35 and y > 175 and y <= 210:
-        figura = 6
+        figura[0] = 6
     if x > 0 and x <= 35 and y > 210 and y <= 245:
-        figura = 7                        
+        figura[0] = 7                        
     
     return figura
 
 def validaColor(pos_ini):
     x = pos_ini[0]
     y = pos_ini[1]
+    color = [0,0]
     
     if x > 0 and x <= 35 and y > 245 and y <= 280:
-        color = Amarillo
+        color[0] = Amarillo
     if x > 0 and x <= 35 and y > 280 and y <= 315:
-        color = Azul  
+        color[0] = Azul  
     if x > 0 and x <= 35 and y > 315 and y <= 350:
-        color = Rojo 
+        color[0] = Rojo 
     if x > 0 and x <= 35 and y > 350 and y <= 385:
-        color = Verde
+        color[0] = Verde
     if x > 0 and x <= 35 and y > 385 and y <= 420:
-        color = Naranja
+        color[0] = Naranja
     if x > 0 and x <= 35 and y > 420 and y <= 455:
-        color = Negro
+        color[0] = Negro
     if x > 0 and x <= 35 and y > 455 and y <= 490:
-        color = Cafe
+        color[0] = Cafe
     if x > 0 and x <= 35 and y > 490 and y <= 525:
-        color = Rosa
+        color[0] = Rosa
     if x > 0 and x <= 35 and y > 525 and y <= 560:
-        color = Morado        
+        color[0] = Morado
+    if x > 0 and x <= 35 and y > 560 and y <= 595:
+        color = cl.color()
 
-    return color
+    return color[0]
+
+def transformaciones(pos_ini):
+    x = pos_ini[0]
+    y = pos_ini[1]
+
+    if x > 0 and x <= 35 and y > 595 and y <= 630:
+        funcion = 1
+
+    return funcion    
 
 def punto(windows,color,P1):
     pygame.draw.line(windows,color,P1,P1,1)
@@ -188,7 +205,7 @@ def menu(windows,color,pos_ini):
     x = pos_ini[0]
     y = pos_ini[1]
     draw_line_dda(windows,x+5,y+20,x+30,y+20,Negro)
-    for n in range(0,16):
+    for n in range(0,20):
         Rectangulo(windows,Negro,(x,y),(x + 35,y + 35),0)
         y = y + 35
         if n == 0:
@@ -221,6 +238,11 @@ def menu(windows,color,pos_ini):
             Rectangulo(windows,Rosa,(x+2,y+2),(x+33,y+33),1)    
         if n == 14:
             Rectangulo(windows,Morado,(x+2,y+2),(x+33,y+33),1)
+        if n == 15:
+            Rectangulo(windows,Azul,(x+10,y+10),(x+25,y+25),1)
+        if n == 16:
+            Equilatero(windows,8,8,x+5,y+25,Azul)    
+            Equilatero(windows,15,18,x+15,y+25,Azul)    
 
     pygame.display.flip()
 
