@@ -171,6 +171,12 @@ def transformaciones(pos_ini):
     if x > 0 and x <= 35 and y > 595 and y <= 630:
         funcion = 1
 
+    if x > 0 and x <= 35 and y > 630 and y <= 665:
+        funcion = 2 
+
+    if x > 0 and x <= 35 and y > 665 and y <= 700:
+        funcion = 3       
+
     return funcion    
 
 def punto(windows,color,P1):
@@ -242,7 +248,13 @@ def menu(windows,color,pos_ini):
             Rectangulo(windows,Azul,(x+10,y+10),(x+25,y+25),1)
         if n == 16:
             Equilatero(windows,8,8,x+5,y+25,Azul)    
-            Equilatero(windows,15,18,x+15,y+25,Azul)    
+            Equilatero(windows,15,18,x+15,y+25,Azul) 
+        if n == 17:
+            Rectangulo(windows,Rojo,(x+5,y+5),(x+10,y+10),1)
+            Rectangulo(windows,Morado,(x+25,y+25),(x+30,y+30),1)
+        if n == 18:
+            Rectangulo(windows,Rojo,(x+5,y+5),(x+7,y+30),1) 
+            Rectangulo(windows,Rojo,(x+10,y+17),(x+30,y+19),1)          
 
     pygame.display.flip()
 
@@ -256,3 +268,24 @@ def Linea(windows,pos_ini,pos_fin,color):
         draw_line_dda(windows,x1,y1,x0,y0,color)
     else:
         draw_line_dda(windows,x0,y0,x1,y1,color)
+
+def rotar(r,p):
+    coseno = math.cos(math.radians(r))
+    seno = math.sin(math.radians(r)) 
+    xp = round(p[0]*coseno - p[1]*seno)
+    yp = round(p[0]*seno + p[1]*coseno)
+    if xp < 1:
+        xp = xp * -1
+    if yp < 1:
+        yp = yp * -1    
+    pp = [xp,yp]
+    print (pp)
+    return pp
+
+def rotar2(r,p):
+    coseno = math.cos(math.radians(r))
+    seno = math.sin(math.radians(r)) 
+    xp = p[0]*coseno + p[1]*seno
+    yp = p[1]*coseno - p[0]*seno
+    pp = [xp,yp]
+    return pp
