@@ -12,10 +12,9 @@ def main():
     pospacman = [2,3]
 
     screen = pygame.display.set_mode((SCREEN_WIDH,SCREEN_HEIGHT))
-    pygame.display.set_caption("Manejo de imagenes")
 
-    fondo = pygame.image.load("tablero.jpeg").convert()
-    pacman = pygame.image.load("LEFT.jpeg").convert_alpha()
+    fondo = pygame.image.load('tablero.jpeg').convert()
+    pacman = pygame.image.load('LEFT.jpeg').convert_alpha()
 
     pygame.mixer.music.load('soud.wav')
 
